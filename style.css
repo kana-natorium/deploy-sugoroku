@@ -90,9 +90,10 @@ h1 {
 
 .dice-area {
   display: grid;
-  grid-template-columns: auto auto minmax(220px, 1fr);
+  grid-template-columns: auto auto minmax(0, 1fr);
   align-items: center;
   gap: 12px;
+  width: 100%;
   margin: 0 auto 12px;
   padding: 12px;
   border: 1px solid var(--line);
@@ -102,11 +103,12 @@ h1 {
 }
 
 .dice-track {
-  --roll-distance: min(780px, calc(100vw - 150px));
+  --dice-size: 78px;
   position: relative;
-  min-width: 220px;
+  width: 100%;
+  min-width: 0;
   height: 88px;
-  overflow: visible;
+  overflow: hidden;
   border-radius: 18px;
   background: linear-gradient(180deg, #f8fbff 0%, #edf7f7 100%);
   border: 1px solid rgba(125, 158, 166, 0.18);
@@ -124,20 +126,23 @@ h1 {
 }
 
 #diceImage {
-  position: relative;
+  position: absolute;
+  left: 0;
+  bottom: 10px;
   z-index: 1;
-  width: 78px;
-  height: 78px;
+  width: var(--dice-size);
+  height: var(--dice-size);
   object-fit: contain;
   background: transparent;
-  transform: translateX(0) rotate(0deg);
+  transform: translateY(0) rotate(0deg);
   transform-origin: center center;
   filter: drop-shadow(0 8px 10px rgba(95, 81, 72, 0.18));
 }
 
 #diceImage.dice-reset {
   transition: none;
-  transform: translateX(0) rotate(0deg);
+  left: 0;
+  transform: translateY(0) rotate(0deg);
 }
 
 #diceImage.rolling {
@@ -145,16 +150,17 @@ h1 {
 }
 
 #diceImage.rolled {
-  transform: translateX(var(--roll-distance)) rotate(2160deg);
+  left: calc(100% - var(--dice-size));
+  transform: translateY(0) rotate(2160deg);
 }
 
 @keyframes dice-roll-side {
-  0% { transform: translateX(0) translateY(0) rotate(0deg); }
-  18% { transform: translateX(calc(var(--roll-distance) * 0.2)) translateY(-9px) rotate(240deg); }
-  38% { transform: translateX(calc(var(--roll-distance) * 0.46)) translateY(0) rotate(680deg); }
-  58% { transform: translateX(calc(var(--roll-distance) * 0.66)) translateY(-6px) rotate(1120deg); }
-  78% { transform: translateX(calc(var(--roll-distance) * 0.86)) translateY(0) rotate(1640deg); }
-  100% { transform: translateX(var(--roll-distance)) translateY(0) rotate(2160deg); }
+  0% { left: 0; transform: translateY(0) rotate(0deg); }
+  18% { left: calc((100% - var(--dice-size)) * 0.2); transform: translateY(-9px) rotate(240deg); }
+  38% { left: calc((100% - var(--dice-size)) * 0.46); transform: translateY(0) rotate(680deg); }
+  58% { left: calc((100% - var(--dice-size)) * 0.66); transform: translateY(-6px) rotate(1120deg); }
+  78% { left: calc((100% - var(--dice-size)) * 0.86); transform: translateY(0) rotate(1640deg); }
+  100% { left: calc(100% - var(--dice-size)); transform: translateY(0) rotate(2160deg); }
 }
 
 button {
@@ -364,13 +370,11 @@ button:disabled {
   }
 
   .dice-track {
+    --dice-size: 68px;
     height: 76px;
   }
 
-  #diceImage {
-    width: 68px;
-    height: 68px;
-  }
+
 
   .message {
     min-height: 52px;
@@ -409,16 +413,13 @@ button:disabled {
   }
 
   .dice-track {
-    --roll-distance: min(620px, calc(180vw - 180px));
+    --dice-size: 74px;
     grid-column: 1 / -1;
     min-width: 0;
     height: 84px;
   }
 
-  #diceImage {
-    width: 74px;
-    height: 74px;
-  }
+
 
   .board {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -461,6 +462,6 @@ button:disabled {
   }
 
   .dice-track {
-    --roll-distance: min(520px, calc(180vw - 112px));
+    --dice-size: 68px;
   }
 }
