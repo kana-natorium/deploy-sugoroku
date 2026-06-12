@@ -90,7 +90,7 @@ h1 {
 
 .dice-area {
   display: grid;
-  grid-template-columns: auto auto minmax(0, 1fr);
+  grid-template-columns: auto auto minmax(280px, 1fr);
   align-items: center;
   gap: 12px;
   width: 100%;
@@ -102,17 +102,25 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+#rollButton {
+  grid-column: 1;
+}
+
+.restart-button {
+  grid-column: 2;
+}
+
 .dice-track {
+  grid-column: 3;
   position: relative;
   width: 100%;
-  min-width: 0;
+  min-width: 280px;
   height: 88px;
   overflow: hidden;
   border-radius: 18px;
   background: linear-gradient(180deg, #f8fbff 0%, #edf7f7 100%);
   border: 1px solid rgba(125, 158, 166, 0.18);
 }
-
 .dice-track::after {
   content: "";
   position: absolute;
@@ -375,8 +383,6 @@ button:disabled {
     height: 88px;
   }
 
-
-
   .message {
     min-height: 52px;
     padding-top: 10px;
@@ -409,8 +415,12 @@ button:disabled {
     gap: 10px;
   }
 
-  .restart-button {
+  #rollButton {
     grid-column: 1;
+  }
+
+  .restart-button {
+    grid-column: 2;
   }
 
   .dice-track {
