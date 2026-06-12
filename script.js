@@ -212,12 +212,7 @@ async function rollDiceAnimation(finalDice) {
   diceImage.classList.remove("dice-reset");
   diceImage.classList.add("rolling");
 
-  for (let i = 0; i < 18; i += 1) {
-    const face = Math.floor(Math.random() * 6) + 1;
-    diceImage.src = `assets/dice${face}.png?v=7`;
-    diceImage.alt = `サイコロの出目 ${face}`;
-    await sleep(80);
-  }
+  await sleep(1450);
 
   diceImage.src = `assets/dice${finalDice}.png?v=7`;
   diceImage.alt = `サイコロの出目 ${finalDice}`;
