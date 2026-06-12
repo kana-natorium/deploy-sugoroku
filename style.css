@@ -102,11 +102,11 @@ h1 {
 }
 
 .dice-track {
-  --roll-distance: min(760px, calc(100vw - 250px));
+  --roll-distance: min(780px, calc(100vw - 150px));
   position: relative;
   min-width: 220px;
   height: 88px;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 18px;
   background: linear-gradient(180deg, #f8fbff 0%, #edf7f7 100%);
   border: 1px solid rgba(125, 158, 166, 0.18);
@@ -409,7 +409,7 @@ button:disabled {
   }
 
   .dice-track {
-    --roll-distance: calc(100vw - 138px);
+    --roll-distance: min(620px, calc(180vw - 180px));
     grid-column: 1 / -1;
     min-width: 0;
     height: 84px;
@@ -461,6 +461,6 @@ button:disabled {
   }
 
   .dice-track {
-    --roll-distance: calc(100vw - 112px);
+    --roll-distance: min(520px, calc(180vw - 112px));
   }
 }
