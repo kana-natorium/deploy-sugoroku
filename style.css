@@ -102,7 +102,7 @@ h1 {
 }
 
 .dice-track {
-  --roll-distance: min(390px, calc(100vw - 250px));
+  --roll-distance: min(760px, calc(100vw - 250px));
   position: relative;
   min-width: 220px;
   height: 88px;
@@ -145,16 +145,16 @@ h1 {
 }
 
 #diceImage.rolled {
-  transform: translateX(var(--roll-distance)) rotate(1260deg);
+  transform: translateX(var(--roll-distance)) rotate(2160deg);
 }
 
 @keyframes dice-roll-side {
   0% { transform: translateX(0) translateY(0) rotate(0deg); }
-  18% { transform: translateX(calc(var(--roll-distance) * 0.2)) translateY(-9px) rotate(145deg); }
-  38% { transform: translateX(calc(var(--roll-distance) * 0.46)) translateY(0) rotate(335deg); }
-  58% { transform: translateX(calc(var(--roll-distance) * 0.66)) translateY(-6px) rotate(500deg); }
-  78% { transform: translateX(calc(var(--roll-distance) * 0.86)) translateY(0) rotate(650deg); }
-  100% { transform: translateX(var(--roll-distance)) translateY(0) rotate(1260deg); }
+  18% { transform: translateX(calc(var(--roll-distance) * 0.2)) translateY(-9px) rotate(240deg); }
+  38% { transform: translateX(calc(var(--roll-distance) * 0.46)) translateY(0) rotate(680deg); }
+  58% { transform: translateX(calc(var(--roll-distance) * 0.66)) translateY(-6px) rotate(1120deg); }
+  78% { transform: translateX(calc(var(--roll-distance) * 0.86)) translateY(0) rotate(1640deg); }
+  100% { transform: translateX(var(--roll-distance)) translateY(0) rotate(2160deg); }
 }
 
 button {
