@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人生ゲーム風ミニゲーム</title>
+  <link rel="stylesheet" href="style.css?v=8">
+</head>
+<body>
+  <main class="game">
+    <h1>人生ゲーム風ミニゲーム</h1>
+
+    <section class="status">
+      <div>
+        <span class="label">現在地</span>
+        <strong id="positionText">スタート</strong>
+      </div>
+      <div>
+        <span class="label">休み回数</span>
+        <strong id="restText">0</strong>
+      </div>
+    </section>
+
+    <section class="dice-area">
+      <button id="rollButton" type="button">サイコロを振る</button>
+      <button id="restartButton" class="restart-button" type="button">もう一度</button>
+      <div class="dice-track"><img id="diceImage" src="assets/dice1.png?v=7" alt="サイコロの出目 1"></div>
+    </section>
+
+    <p id="message" class="message">サイコロを振ってスタート！</p>
+
+    <section id="board" class="board" aria-label="ゲーム盤"></section>
+    <div id="goalEffect" class="goal-effect" aria-hidden="true">ゴール！🎉</div>
+  </main>
+
+  <script src="script.js?v=8"></script>
+</body>
+</html>
